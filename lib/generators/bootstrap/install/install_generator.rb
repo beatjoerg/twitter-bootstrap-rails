@@ -5,12 +5,12 @@ module Bootstrap
     class InstallGenerator < ::Rails::Generators::Base
 
       source_root File.expand_path("../templates", __FILE__)
-      desc "This generator installs Twitter Bootstrap to Asset Pipeline"
+      desc "This generator installs Bootstrap to Asset Pipeline"
       argument :stylesheets_type, :type => :string, :default => 'less', :banner => '*less or static'
 
       def add_assets
 
-        js_manifest = 'app/assets/javascripts/applications.js'
+        js_manifest = 'app/assets/javascripts/application.js'
 
         if File.exist?(js_manifest)
           insert_into_file js_manifest, "//= require twitter/bootstrap\n", :after => "jquery_ujs\n"
